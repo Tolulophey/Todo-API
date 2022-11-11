@@ -22,7 +22,7 @@ npm install
 
 After installing all the dependencies, to start the server run the code below inside your terminal
 ```
-npm start
+npm run dev
 ```
 
 These commands put the application in development mode and directs our application to use the index.js file.
