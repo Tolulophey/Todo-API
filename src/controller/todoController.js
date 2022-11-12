@@ -20,7 +20,7 @@ exports.createTodo = async (req, res)=>{
         res.status(500).json({
             success: false,
             message: "Internal Server error",
-            message: error.message
+            error: error.message
         })
     }
 }
@@ -46,7 +46,7 @@ exports.getAllTodos = async (req, res)=>{
         res.status(500).json({
             success: false,
             message: "Internal Server error",
-            message: error.message
+            error: error.message
         })
     }
 }
@@ -71,7 +71,7 @@ exports.getTodo = async (req, res)=>{
         res.status(500).json({
             success: false,
             message: "Internal Server error",
-            message: error.message
+            error: error.message
         })
     }
 }
@@ -93,13 +93,13 @@ exports.updateTodo = async (req, res)=>{
         return res.status(200).json({
             success: true,
             message: "Todo updated successfully",
-            todo: newTodo
+            todo: await Todo.findOne({_id: req.params.id})
         })         
     } catch (error) {
         res.status(500).json({
             success: false,
             message: "Internal Server error",
-            message: error.message
+            error: error.message
         })
     }
 }
@@ -122,7 +122,7 @@ exports.deleteTodo = async (req, res)=>{
         res.status(500).json({
             success: false,
             message: "Internal Server error",
-            message: error.message
+            error: error.message
         })
     }
 }
